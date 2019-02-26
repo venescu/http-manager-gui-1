@@ -13,12 +13,13 @@ public class Actions {
 	 * @param url
 	 * @return
 	 */
-	public boolean testConnection(String url) {
+	public static boolean testConnection(String url) {
 		boolean success;
 		try {
 			HttpManager.get(url);
 			success = true;
 		} catch (IOException e) {
+			e.printStackTrace();
 			success = false;
 		}
 		
@@ -32,7 +33,7 @@ public class Actions {
 	 * @param port
 	 * @throws IOException 
 	 */
-	public void save(ProxyMode mode, String hostname, String port) throws IOException {
+	public static void save(ProxyMode mode, String hostname, String port) throws IOException {
 		ProxyConfig config = new ProxyConfig();
 		config.setProxyMode(mode);
 		config.setProxyHostname(hostname);

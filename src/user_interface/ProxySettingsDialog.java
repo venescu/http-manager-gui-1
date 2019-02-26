@@ -42,7 +42,7 @@ public class ProxySettingsDialog extends Dialog {
 		shell.open();
 	}
 	
-	public void createContents(Shell shell) throws IOException {
+	public static void createContents(Shell shell) throws IOException {
 		
 		shell.setLayout(new GridLayout(2, false));
 		
@@ -114,20 +114,18 @@ public class ProxySettingsDialog extends Dialog {
 				
 				shell.setCursor(shell.getDisplay().getSystemCursor(SWT.CURSOR_WAIT));
 				
-				Actions actions = new Actions();
-				
 				ProxyMode mode = (ProxyMode) ((IStructuredSelection) proxyMode.getSelection()).getFirstElement();
 				
 				// save the configuration before testing
 				// otherwise not working
 				try {
-					actions.save(mode, hostname.getText(), port.getText());
+					Actions.save(mode, hostname.getText(), port.getText());
 				} catch (IOException e) {
 					e.printStackTrace();
 					return;
 				}
 				
-				boolean success = actions.testConnection(TEST_CONN_URL);
+				boolean success = Actions.testConnection(TEST_CONN_URL);
 				
 				String message = null;
 				int icon;
@@ -154,12 +152,10 @@ public class ProxySettingsDialog extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) {
 				
-				Actions actions = new Actions();
-				
 				ProxyMode mode = (ProxyMode) ((IStructuredSelection) proxyMode.getSelection()).getFirstElement();
 				
 				try {
-					actions.save(mode, hostname.getText(), port.getText());
+					Actions.save(mode, hostname.getText(), port.getText());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
