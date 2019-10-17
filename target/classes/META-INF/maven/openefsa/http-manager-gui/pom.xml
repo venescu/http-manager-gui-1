@@ -14,8 +14,8 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>HttpManager</groupId>
-			<artifactId>HttpManager</artifactId>
+			<groupId>openefsa</groupId>
+			<artifactId>http-manager</artifactId>
 			<version>1.0.0</version>
 		</dependency>
 		<dependency>
@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>swt</groupId>
 			<artifactId>swt</artifactId>
-			<version>3.7.0.x32</version>
+			<version>3.7.0.x64</version>
 		</dependency>
 		<dependency>
 			<groupId>jface</groupId>
@@ -70,6 +70,9 @@
 						<goals>
 							<goal>aggregate-download-licenses</goal>
 						</goals>
+						<configuration>
+							<licensesOutputDirectory>third-party-license</licensesOutputDirectory>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
