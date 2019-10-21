@@ -3,7 +3,7 @@
 </p>
 
 # Http Manager GUI
-his maven project module, written in Java, can be used for managing the http connections (for now it is possible to call get requests) using a graphical user interface.
+This Maven project module, written in Java, can be used for managing the http connections (for now it is possible to call get requests) using a graphical user interface.
 In addition, it is possible to configure a proxy if present.
 
 ## Dependencies
