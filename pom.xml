@@ -2,11 +2,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>openefsa</groupId>
-		<artifactId>all-projects</artifactId>
-		<version>${global.version}</version>
-	</parent>
+	<groupId>openefsa</groupId>
+	<version>1.1.0</version>
 	<artifactId>http-manager-gui</artifactId>
 
 	<properties>
@@ -17,21 +14,9 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>openefsa</groupId>
-			<artifactId>http-manager</artifactId>
-			<version>${global.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.eclipse.core</groupId>
 			<artifactId>org.eclipse.core.commands</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>swt</groupId>
-			<artifactId>swt</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>jface</groupId>
-			<artifactId>jface</artifactId>
+			<version>[3.6.0,)</version>
 		</dependency>
 	</dependencies>
 
