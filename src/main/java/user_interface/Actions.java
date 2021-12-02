@@ -33,10 +33,12 @@ public class Actions {
 	 * @param port
 	 * @throws IOException 
 	 */
-	public static void save(ProxyMode mode, String hostname, String port) throws IOException {
+	public static void save(ProxyMode mode, String hostname, String port, String user, String passwd) throws IOException {
 		ProxyConfig config = new ProxyConfig();
 		config.setProxyMode(mode);
 		config.setProxyHostname(hostname);
 		config.setProxyPort(port);
+		config.setProxyUser(user);
+		config.setProxyPasswd(passwd);
 	}
 }

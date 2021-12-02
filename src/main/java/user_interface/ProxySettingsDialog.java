@@ -82,6 +82,14 @@ public class ProxySettingsDialog extends Dialog {
 		portLabel.setText("Port:");
 		
 		Text port = new Text(shell, SWT.NONE);
+
+		Label userLabel = new Label(shell, SWT.NONE);
+		userLabel.setText("User:");
+		Text user = new Text(shell, SWT.NONE);
+		
+		Label passwLabel = new Label(shell, SWT.NONE);
+		passwLabel.setText("Password:");
+		Text passwd = new Text(shell, SWT.PASSWORD);
 		
 		Button testConnectionBtn = new Button(shell, SWT.NONE);
 		testConnectionBtn.setText("Test connection");
@@ -103,6 +111,8 @@ public class ProxySettingsDialog extends Dialog {
 				
 				hostname.setEnabled(manualMode);
 				port.setEnabled(manualMode);
+				user.setEnabled(manualMode);
+				passwd.setEnabled(manualMode);
 			}
 		});
 		
@@ -119,7 +129,7 @@ public class ProxySettingsDialog extends Dialog {
 				// save the configuration before testing
 				// otherwise not working
 				try {
-					Actions.save(mode, hostname.getText(), port.getText());
+					Actions.save(mode, hostname.getText(), port.getText(), user.getText(), passwd.getText());
 				} catch (IOException e) {
 					e.printStackTrace();
 					return;
@@ -155,7 +165,7 @@ public class ProxySettingsDialog extends Dialog {
 				ProxyMode mode = (ProxyMode) ((IStructuredSelection) proxyMode.getSelection()).getFirstElement();
 				
 				try {
-					Actions.save(mode, hostname.getText(), port.getText());
+					Actions.save(mode, hostname.getText(), port.getText(), user.getText(), passwd.getText());
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -171,10 +181,14 @@ public class ProxySettingsDialog extends Dialog {
 		ProxyConfig config = new ProxyConfig();
 		hostname.setText(config.getProxyHostname());
 		port.setText(config.getProxyPort());
-		
+		user.setText(config.getProxyUser());
+		passwd.setText(config.getProxyPasswd());
+
 		boolean manual = config.getProxyMode() == ProxyMode.MANUAL;
 		hostname.setEnabled(manual);
 		port.setEnabled(manual);
+		user.setEnabled(manual);
+		passwd.setEnabled(manual);
 		proxyMode.setSelection(new StructuredSelection(config.getProxyMode()));
 	}
 	
